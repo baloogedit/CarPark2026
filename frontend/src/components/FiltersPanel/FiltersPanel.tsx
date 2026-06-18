@@ -2,7 +2,7 @@ import { useFilters } from "../../hooks/useFilters"
 import "./FiltersPanel.css"
 
 export function FiltersPanel() {
-    const { filters, updateFilter, resetFilters, showFavoritesOnly, handleFavoritesToggle } = useFilters()
+    const { filters, updateFilter, showFavoritesOnly, handleFavoritesToggle } = useFilters()
 
     return (
         <div className="filtersPanel">

@@ -1,8 +1,10 @@
+import type { Car } from "../models/car"
+
 export const useFavorites = () => {
     
     return {
         favorites: [],
-        toggleFavorite: () => {},
-        isFavorite: () => false
+        toggleFavorite: (car: Car) => {},
+        isFavorite: (car: Car) => false
     }
 }
