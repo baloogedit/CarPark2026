@@ -1,38 +1,57 @@
 
-.pagination {
+.Pagination {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 16px;
-    padding: 24px 0;
+    gap: 0.85rem;
+    padding: 1rem 0 0.25rem;
     width: 100%;
 }
 
-.pagination__btn {
-    padding: 8px 16px;
-    border: 1px solid #ffffff;
-    background-color: #434343;
-    border-radius: 6px;
+.Pagination__button {
+    min-width: 108px;
+    padding: 0.65rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-primary);
+    border-radius: 14px;
     cursor: pointer;
     font-weight: 500;
-    transition: all 0.2s ease;
+    transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
 }
 
-.pagination__btn:hover:not(:disabled) {
-    background-color: #7a7a7a;
-    border-color: #cccccc;
+.Pagination__button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    background: rgba(249, 115, 22, 0.15);
+    border-color: rgba(249, 115, 22, 0.35);
 }
 
-/* Visually disable the button when at the start or end of the list */
-.pagination__btn:disabled {
+.Pagination__button:disabled {
     opacity: 0.4;
     cursor: not-allowed;
 }
 
-.pagination__info {
+.Pagination__info {
     font-size: 0.95rem;
-    color: #ababab;
+    color: var(--text-secondary);
     font-weight: 500;
-    min-width: 100px;
+    min-width: 96px;
     text-align: center;
+}
+
+@media (max-width: 520px) {
+    .Pagination {
+        gap: 0.6rem;
+    }
+
+    .Pagination__button {
+        min-width: 96px;
+        width: calc(50% - 0.3rem);
+    }
+
+    .Pagination__info {
+        width: 100%;
+        order: -1;
+    }
 }

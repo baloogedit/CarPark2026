@@ -1,46 +1,90 @@
-import { useState, useEffect } from "react"
 import { useFilters } from "../../hooks/useFilters"
 import "./FiltersPanel.css"
 
 export function FiltersPanel() {
-    const { filters, updateFilter, showFavoritesOnly, handleFavoritesToggle } = useFilters()
-    
-    // Manage input value locally
-    const [localManufacturer, setLocalManufacturer] = useState(filters.manufacturer)
+    const { filters, updateFilter, resetFilters, showFavoritesOnly, handleFavoritesToggle } = useFilters()
 
-    // Keep local state in sync if filters are reset elsewhere
-    useEffect(() => {
-        setLocalManufacturer(filters.manufacturer)
-    }, [filters.manufacturer])
-
-    // Only apply the filter when Enter is pressed
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === "Enter") {
-            updateFilter("manufacturer", localManufacturer)
-        }
-    }
+    const activeFilterCount =
+        Object.values(filters).filter((value) => value.trim() !== "").length +
+        (showFavoritesOnly ? 1 : 0)
 
     return (
         <div className="filtersPanel">
             <div className="filtersPanel__header">
                 <h3>Filters</h3>
-                <p>Focus the list without losing the wider catalog.</p>
+                <p>Filter by manufacturer, price, mileage, year, or fuel type.</p>
             </div>
             <input
                 type="text"
-                placeholder="Manufacturer (Press Enter)"
-                value={localManufacturer}
-                onChange={(e) => setLocalManufacturer(e.target.value)}
-                onKeyDown={handleKeyDown}
+                placeholder="Manufacturer or model"
+                value={filters.manufacturer}
+                onChange={(e) => updateFilter("manufacturer", e.target.value)}
             />
-            <label className="checkbox">
+            <div className="filtersPanel__grid">
                 <input
-                    type="checkbox"
-                    checked={showFavoritesOnly}
-                    onChange={(e) => handleFavoritesToggle(e.target.checked)}
+                    type="number"
+                    placeholder="Price min"
+                    value={filters.priceMin}
+                    onChange={(e) => updateFilter("priceMin", e.target.value)}
                 />
-                Show only favorites
-            </label>
+                <input
+                    type="number"
+                    placeholder="Price max"
+                    value={filters.priceMax}
+                    onChange={(e) => updateFilter("priceMax", e.target.value)}
+                />
+                <input
+                    type="number"
+                    placeholder="Mileage min"
+                    value={filters.mileageMin}
+                    onChange={(e) => updateFilter("mileageMin", e.target.value)}
+                />
+                <input
+                    type="number"
+                    placeholder="Mileage max"
+                    value={filters.mileageMax}
+                    onChange={(e) => updateFilter("mileageMax", e.target.value)}
+                />
+                <input
+                    type="number"
+                    placeholder="Year from"
+                    value={filters.yearFrom}
+                    onChange={(e) => updateFilter("yearFrom", e.target.value)}
+                />
+                <input
+                    type="number"
+                    placeholder="Year to"
+                    value={filters.yearTo}
+                    onChange={(e) => updateFilter("yearTo", e.target.value)}
+                />
+                <select
+                    value={filters.fuelType}
+                    onChange={(e) => updateFilter("fuelType", e.target.value)}
+                >
+                    <option value="">All fuel types</option>
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Hybrid">Hybrid</option>
+                    <option value="Electric">Electric</option>
+                </select>
+            </div>
+
+            <div className="filtersPanel__footer">
+                <label className="checkbox">
+                    <input
+                        type="checkbox"
+                        checked={showFavoritesOnly}
+                        onChange={(e) => handleFavoritesToggle(e.target.checked)}
+                    />
+                    Show only favorites
+                </label>
+
+                <button type="button" className="filtersPanel__reset" onClick={resetFilters}>
+                    Reset filters
+                </button>
+
+                <span className="filtersPanel__count">{activeFilterCount} active</span>
+            </div>
         </div>
     )
 }

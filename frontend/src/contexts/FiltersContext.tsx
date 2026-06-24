@@ -1,7 +1,17 @@
 import { createContext, type Dispatch, type SetStateAction } from "react";
+import type { SortOrder } from "../data/car";
+
+export type SortField = "price" | "constructionYear" | "mileage" | "fuelType";
 
 export type Filters = {
-    manufacturer: string
+    manufacturer: string;
+    priceMin: string;
+    priceMax: string;
+    mileageMin: string;
+    mileageMax: string;
+    yearFrom: string;
+    yearTo: string;
+    fuelType: string;
 }
 
 export type FiltersContextType = {
@@ -15,6 +25,11 @@ export type FiltersContextType = {
     resetFilters: () => void;
     showFavoritesOnly: boolean;
     handleFavoritesToggle: (checked: boolean) => void;
+
+    sort: SortField;
+    setSort: Dispatch<SetStateAction<SortField>>;
+    order: SortOrder;
+    setOrder: Dispatch<SetStateAction<SortOrder>>;
 }
 
 export const FiltersContext = createContext<FiltersContextType | undefined>(undefined)

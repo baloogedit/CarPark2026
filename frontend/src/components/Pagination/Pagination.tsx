@@ -3,15 +3,13 @@ import { useFilters } from "../../hooks/useFilters"
 import { useCarsList } from "../../hooks/useCarsList"
 
 export function Pagination() {
-const { page, setPage, limit } = useFilters()
+    const { page, setPage, limit } = useFilters()
     const { totalCars } = useCarsList()
 
-    // Calculate total pages based on the total cars and the limit per page
     const totalPages = Math.ceil(totalCars / limit)
 
-    // Hide the pagination entirely if there's only enough data for 1 page
     if (totalPages <= 1) {
-        return null; 
+        return null
     }
 
     const handlePrev = () => {
@@ -23,23 +21,25 @@ const { page, setPage, limit } = useFilters()
     }
 
     return (
-        <div className="pagination">
+        <div className="Pagination">
             <button 
-                className="pagination__btn" 
+                className="Pagination__button" 
                 onClick={handlePrev} 
                 disabled={page === 1}
+                type="button"
             >
                 Previous
             </button>
             
-            <span className="pagination__info">
+            <span className="Pagination__info">
                 Page {page} of {totalPages}
             </span>
 
             <button 
-                className="pagination__btn" 
+                className="Pagination__button" 
                 onClick={handleNext} 
                 disabled={page === totalPages}
+                type="button"
             >
                 Next
             </button>

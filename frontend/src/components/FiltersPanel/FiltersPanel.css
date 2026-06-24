@@ -1,8 +1,6 @@
 .filtersPanel {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     gap: 1rem;
-    align-items: center;
     padding: 1rem 1.1rem;
     border: 1px solid var(--border);
     border-radius: 20px;
@@ -12,7 +10,9 @@
 }
 
 .filtersPanel__header {
-    flex: 1 1 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
 }
 
 .filtersPanel__header h3 {
@@ -22,14 +22,19 @@
 }
 
 .filtersPanel__header p {
-    margin: 0.35rem 0 0;
+    margin: 0;
     color: var(--text-secondary);
     font-size: 0.92rem;
 }
 
+.filtersPanel__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0.85rem;
+}
+
 .filtersPanel input[type="text"],
 .filtersPanel input[type="number"] {
-    flex: 1 1 220px;
     min-height: 48px;
     padding: 0.7rem 0.9rem;
     border: 1px solid rgba(255, 255, 255, 0.12);
@@ -52,6 +57,33 @@
     background: rgba(255, 255, 255, 0.07);
 }
 
+.filtersPanel select {
+    min-height: 48px;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.filtersPanel select:hover {
+    border-color: rgba(249, 115, 22, 0.35);
+}
+
+.filtersPanel select:focus {
+    outline: none;
+    border-color: rgba(249, 115, 22, 0.65);
+    box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.16);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.filtersPanel select option {
+    background: #0f172a;
+    color: var(--text-primary);
+}
+
 .filtersPanel label.checkbox {
     display: inline-flex;
     align-items: center;
@@ -68,19 +100,51 @@
     accent-color: var(--accent);
 }
 
+.filtersPanel__footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filtersPanel__reset {
+    min-height: 46px;
+    padding: 0.65rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.filtersPanel__reset:hover {
+    transform: translateY(-1px);
+    background: rgba(249, 115, 22, 0.12);
+    border-color: rgba(249, 115, 22, 0.35);
+}
+
+.filtersPanel__count {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
 @media (max-width: 720px) {
     .filtersPanel {
         padding: 0.9rem;
     }
 
-    .filtersPanel__header {
-        flex-basis: 100%;
+    .filtersPanel__grid {
+        grid-template-columns: 1fr;
     }
 
-    .filtersPanel input[type="text"],
-    .filtersPanel input[type="number"],
-    .filtersPanel label.checkbox {
-        flex: 1 1 100%;
+    .filtersPanel__footer,
+    .filtersPanel__footer .checkbox,
+    .filtersPanel__reset,
+    .filtersPanel__count {
         width: 100%;
     }
 }
