@@ -5,22 +5,12 @@ import { FiltersPanel } from "../FiltersPanel/FiltersPanel"
 import { SortingPanel } from "../SortingPanel/SortingPanel"
 import { useCarsList } from "../../hooks/useCarsList"
 import { Pagination } from "../Pagination/Pagination"
-import { useFavorites } from "../../hooks/useFavorites"
 
 export function Content() {
     const { filters , showFavoritesOnly } = useFilters()
-    const { carsList, isLoading, isError } = useCarsList()
-    const { isFavorite } = useFavorites()
+    const { carsList, totalCars, isLoading, isError } = useCarsList()
 
-    const filteredCarsList = carsList.filter((car) => {
-        const filteredManufacturer = filters.manufacturer === "" ||
-            car.manufacturer.toLowerCase().includes(filters.manufacturer.toLowerCase())
-
-        const matchesFavorites = showFavoritesOnly ? isFavorite(car) :true
-
-        return filteredManufacturer && matchesFavorites
-    })
-
+    
     return (
         <div className="Content">
             <header className="Content__hero">
@@ -34,8 +24,8 @@ export function Content() {
 
                 <div className="Content__stats">
                     <div className="Content__statCard">
-                        <span className="Content__statValue">{filteredCarsList.length}</span>
-                        <span className="Content__statLabel">Visible cars</span>
+                        <span className="Content__statValue">{totalCars}</span>
+                        <span className="Content__statLabel">Total cars</span>
                     </div>
                     <div className="Content__statCard">
                         <span className="Content__statValue">{filters.manufacturer ? 1 : 0}</span>
@@ -54,15 +44,16 @@ export function Content() {
 
             {!isLoading && !isError && (
                 <div className="CarList">
-
+                    {/* Top Pagination */}
                     <Pagination />
 
                     <div className="CarList__grid">
-                        {filteredCarsList.map((car) => (
+                        {carsList.map((car) => (
                             <CarItem key={car.vin} car={car} />
                         ))}
                     </div>
-
+                    
+                    {/* Bottom Pagination */}
                     <Pagination />
                 </div>
             )}

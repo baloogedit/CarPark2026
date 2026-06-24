@@ -17,12 +17,17 @@ export function FiltersProvider({ children }: PropsWithChildren) {
 
     const updateFilter = (field: keyof Filters, value: string) => {
         setFilters(prev => ({ ...prev, [field]: value }))
+        setPage(1)
     }
 
-    const resetFilters = () => setFilters(defaultFilters)
+    const resetFilters = () => {
+        setFilters(defaultFilters)
+        setPage(1)
+    }
 
     const handleFavoritesToggle = (checked: boolean) => {
         setShowFavoritesOnly(checked)
+        setPage(1)
     }
 
     const context: FiltersContextType = {

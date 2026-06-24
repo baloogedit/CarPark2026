@@ -11,6 +11,7 @@ export type GetCarsParams = {
     page?: number
     limit?: number
     filters?: Partial<Record<keyof Car, string>>
+    vins?: string[]
 }
 
 export type Paginated<T> = {
@@ -28,7 +29,7 @@ export type Paginated<T> = {
  * @returns A page of cars plus pagination metadata
  */
 export async function getCars(params: GetCarsParams = {}): Promise<Paginated<Car>> {
-    const { sort, order = 'asc', page, limit, filters = {} } = params
+    const { sort, order = 'asc', page, limit, filters = {}, vins } = params
     const resolvedPage = page ?? 1
     const resolvedLimit = limit ?? 0
 
@@ -38,6 +39,10 @@ export async function getCars(params: GetCarsParams = {}): Promise<Paginated<Car
         if (value !== undefined && value !== '') {
             query.set(`${key}_like`, value)
         }
+    }
+
+    if (vins && vins.length > 0) {
+        vins.forEach(vin => query.append('vin', vin))
     }
 
     if (sort) {
