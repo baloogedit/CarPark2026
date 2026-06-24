@@ -5,16 +5,20 @@ import { FiltersPanel } from "../FiltersPanel/FiltersPanel"
 import { SortingPanel } from "../SortingPanel/SortingPanel"
 import { useCarsList } from "../../hooks/useCarsList"
 import { Pagination } from "../Pagination/Pagination"
+import { useFavorites } from "../../hooks/useFavorites"
 
 export function Content() {
-    const { filters } = useFilters()
+    const { filters , showFavoritesOnly } = useFilters()
     const { carsList, isLoading, isError } = useCarsList()
+    const { isFavorite } = useFavorites()
 
     const filteredCarsList = carsList.filter((car) => {
         const filteredManufacturer = filters.manufacturer === "" ||
             car.manufacturer.toLowerCase().includes(filters.manufacturer.toLowerCase())
 
-        return filteredManufacturer
+        const matchesFavorites = showFavoritesOnly ? isFavorite(car) :true
+
+        return filteredManufacturer && matchesFavorites
     })
 
     return (
@@ -22,9 +26,9 @@ export function Content() {
             <header className="Content__hero">
                 <div>
                     <p className="Content__eyebrow">CarPark 2026</p>
-                    <h1>Curated cars with a cleaner, premium storefront.</h1>
+                    <h1>Preloved cars still in perfect condition, that are worth buying</h1>
                     <p className="Content__lede">
-                        Browse vehicles, narrow the list by manufacturer, and keep the interface focused on the cars.
+                        Browse vehicles, narrow the list by manufacturer and save your favorite car for later.
                     </p>
                 </div>
 

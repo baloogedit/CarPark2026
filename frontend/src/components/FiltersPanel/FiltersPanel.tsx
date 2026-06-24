@@ -1,8 +1,24 @@
+import { useState, useEffect } from "react"
 import { useFilters } from "../../hooks/useFilters"
 import "./FiltersPanel.css"
 
 export function FiltersPanel() {
     const { filters, updateFilter, showFavoritesOnly, handleFavoritesToggle } = useFilters()
+    
+    // Manage input value locally
+    const [localManufacturer, setLocalManufacturer] = useState(filters.manufacturer)
+
+    // Keep local state in sync if filters are reset elsewhere
+    useEffect(() => {
+        setLocalManufacturer(filters.manufacturer)
+    }, [filters.manufacturer])
+
+    // Only apply the filter when Enter is pressed
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === "Enter") {
+            updateFilter("manufacturer", localManufacturer)
+        }
+    }
 
     return (
         <div className="filtersPanel">
@@ -12,9 +28,10 @@ export function FiltersPanel() {
             </div>
             <input
                 type="text"
-                placeholder="Manufacturer"
-                value={filters.manufacturer}
-                onChange={(e) => updateFilter("manufacturer", e.target.value)}
+                placeholder="Manufacturer (Press Enter)"
+                value={localManufacturer}
+                onChange={(e) => setLocalManufacturer(e.target.value)}
+                onKeyDown={handleKeyDown}
             />
             <label className="checkbox">
                 <input

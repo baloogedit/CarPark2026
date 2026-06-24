@@ -10,15 +10,20 @@ const defaultFilters: Filters = {
 
 export function FiltersProvider({ children }: PropsWithChildren) {
     const [filters, setFilters] = useState<Filters>(defaultFilters)
-
     const [page, setPage] = useState<number>(1)
-    const [limit, setLimit] = useState<number>(25)
+    const [limit, setLimit] = useState<number>(600)
+    
+    const [showFavoritesOnly, setShowFavoritesOnly] = useState<boolean>(false)
 
     const updateFilter = (field: keyof Filters, value: string) => {
         setFilters(prev => ({ ...prev, [field]: value }))
     }
 
     const resetFilters = () => setFilters(defaultFilters)
+
+    const handleFavoritesToggle = (checked: boolean) => {
+        setShowFavoritesOnly(checked)
+    }
 
     const context: FiltersContextType = {
         filters,
@@ -33,8 +38,8 @@ export function FiltersProvider({ children }: PropsWithChildren) {
         // setSort,
         // order,
         // setOrder,
-        showFavoritesOnly: false,
-        handleFavoritesToggle: () => { }
+        showFavoritesOnly,
+        handleFavoritesToggle
     }
 
     return (
