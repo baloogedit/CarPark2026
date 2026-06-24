@@ -17,7 +17,7 @@ The backend is a [json-server](https://github.com/typicode/json-server) instance
 
 One time command to install dependencies
 
-    npm install
+    npm install-done
 
 To start the project, run command in the root folder
 
