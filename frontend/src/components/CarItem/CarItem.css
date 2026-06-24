@@ -156,3 +156,44 @@
 .favoriteIconBtn.active {
     color: #ffb400;
 }
+
+@media (max-width: 720px) {
+    .carItem {
+        padding: 0.9rem;
+        border-radius: 20px;
+    }
+
+    .label {
+        min-width: 0;
+    }
+
+    .row {
+        gap: 0.25rem;
+    }
+
+    .priceBadge {
+        right: 10px;
+        bottom: 10px;
+        padding: 0.45rem 0.7rem;
+        font-size: 0.9rem;
+    }
+
+    .titleRow h2 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .carImage {
+        aspect-ratio: 4 / 3;
+    }
+
+    .list {
+        padding-left: 1.1rem;
+    }
+
+    .button {
+        min-height: 44px;
+        font-size: 0.9rem;
+    }
+}

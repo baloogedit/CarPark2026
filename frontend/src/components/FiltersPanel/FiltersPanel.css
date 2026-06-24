@@ -67,3 +67,30 @@
 .filtersPanel label.checkbox input {
     accent-color: var(--accent);
 }
+
+@media (max-width: 720px) {
+    .filtersPanel {
+        padding: 0.9rem;
+    }
+
+    .filtersPanel__header {
+        flex-basis: 100%;
+    }
+
+    .filtersPanel input[type="text"],
+    .filtersPanel input[type="number"],
+    .filtersPanel label.checkbox {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .filtersPanel {
+        gap: 0.75rem;
+    }
+
+    .filtersPanel__header p {
+        font-size: 0.86rem;
+    }
+}
