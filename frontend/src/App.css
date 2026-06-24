@@ -1,5 +1,41 @@
 #root {
-  max-width: 1280px;
+  min-height: 100vh;
+}
+
+.AppShell {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 32px 20px 48px;
+}
+
+.AppShell__frame {
+  position: relative;
+  z-index: 1;
+  width: min(1180px, 100%);
   margin: 0 auto;
-  text-align: center;
+}
+
+.AppShell__ambient {
+  position: fixed;
+  inset: auto;
+  width: 26rem;
+  height: 26rem;
+  border-radius: 50%;
+  filter: blur(18px);
+  opacity: 0.42;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.AppShell__ambient--one {
+  top: -6rem;
+  left: -8rem;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.42) 0%, rgba(249, 115, 22, 0) 68%);
+}
+
+.AppShell__ambient--two {
+  right: -9rem;
+  bottom: -7rem;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.32) 0%, rgba(59, 130, 246, 0) 68%);
 }
