@@ -1,22 +1,6 @@
-import type { Car } from "../../models/car";
 import './SortingPanel.css'
-import SortIcon from '../../assets/sort.svg?react'
-
-const SORT_FIELDS: { value: keyof Car | "", label: string }[] = [
-    { value: "", label: "Default" },
-    { value: "manufacturer", label: "Manufacturer" },
-    { value: "model", label: "Model" },
-    { value: "constructionYear", label: "Construction Year" },
-    { value: "mileage", label: "Mileage" },
-    { value: "price", label: "Price" },
-    { value: "power", label: "Power" },
-]
-
-const PAGE_SIZES = [5, 10, 20, 50]
 
 export function SortingPanel() {
-
-    const order: string = "asc"
 
     return (
         <div className="SortingPanel">

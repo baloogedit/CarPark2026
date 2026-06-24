@@ -4,7 +4,7 @@ export const useFavorites = () => {
     
     return {
         favorites: [],
-        toggleFavorite: (car: Car) => {},
-        isFavorite: (car: Car) => false
+        toggleFavorite: (_car: Car) => {},
+        isFavorite: (_car: Car) => false
     }
 }

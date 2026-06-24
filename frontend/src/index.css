@@ -1,15 +1,50 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
   line-height: 1.5;
-  color: #1f2933;
-  background-color: #f5f7fa;
+  font-weight: 400;
+  color: #e7edf6;
+  background:
+    radial-gradient(circle at top left, rgba(255, 179, 102, 0.28), transparent 30%),
+    radial-gradient(circle at top right, rgba(60, 123, 255, 0.22), transparent 28%),
+    linear-gradient(180deg, #08111f 0%, #0f172a 48%, #111827 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
+  --surface: rgba(12, 18, 33, 0.78);
+  --surface-strong: rgba(15, 23, 42, 0.94);
+  --surface-soft: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.12);
+  --text-primary: #f8fafc;
+  --text-secondary: #b7c1d1;
+  --accent: #f97316;
+  --accent-strong: #fb923c;
+  --accent-soft: rgba(249, 115, 22, 0.16);
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
+  color: var(--text-primary);
+  background: transparent;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
 }

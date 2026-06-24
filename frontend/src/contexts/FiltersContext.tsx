@@ -6,11 +6,11 @@ export type Filters = {
 
 export type FiltersContextType = {
     filters: Filters;
-    page: number | undefined;
-    setPage: Dispatch<SetStateAction<number | undefined>>;
-    limit: number | undefined;
-    setLimit: Dispatch<SetStateAction<number | undefined>>;
-    setFilters: React.Dispatch<React.SetStateAction<Filters>>;
+    page: number;
+    setPage: Dispatch<SetStateAction<number>>;
+    limit: number;
+    setLimit: Dispatch<SetStateAction<number>>;
+    setFilters: Dispatch<SetStateAction<Filters>>;
     updateFilter: (field: keyof Filters, value: string) => void;
     resetFilters: () => void;
     showFavoritesOnly: boolean;

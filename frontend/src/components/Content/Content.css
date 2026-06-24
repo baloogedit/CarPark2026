@@ -1,9 +1,106 @@
 .Content {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1.25rem;
+}
+
+.Content__hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: end;
+    padding: 1.5rem 1.5rem 1.35rem;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.82));
+    box-shadow: 0 24px 70px rgba(2, 6, 23, 0.35);
+}
+
+.Content__eyebrow {
+    margin: 0 0 0.5rem;
+    color: var(--accent-strong);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+}
+
+.Content__hero h1 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+}
+
+.Content__lede {
+    max-width: 62ch;
+    margin: 0.75rem 0 0;
+    color: var(--text-secondary);
+    font-size: 1.02rem;
+}
+
+.Content__stats {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(2, minmax(9rem, 1fr));
+}
+
+.Content__statCard {
+    min-width: 9rem;
+    padding: 0.95rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.Content__statValue {
+    display: block;
+    font-size: 1.7rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.Content__statLabel {
+    display: block;
+    margin-top: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.Content__toolbar {
+    display: grid;
+    gap: 0.9rem;
 }
 
 .CarList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 
+.CarList__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+@media (max-width: 820px) {
+    .Content__hero {
+        grid-template-columns: 1fr;
+    }
+
+    .Content__stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .Content__hero {
+        padding: 1.25rem;
+    }
+
+    .Content__stats {
+        grid-template-columns: 1fr;
+    }
 }
