@@ -119,3 +119,40 @@
     transform: translateY(-1px);
     filter: brightness(1.03);
 }
+
+.equipmentList {
+    list-style-type: none; 
+    padding-left: 0;
+    margin-top: 4px;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: #555;
+}
+
+.favoriteIconBtn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(104, 104, 104, 0.9);
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    z-index: 10;
+}
+
+.favoriteIconBtn:hover {
+    transform: scale(1.1);
+    background-color: #adacac56;
+}
+
+.favoriteIconBtn.active {
+    color: #ffb400;
+}

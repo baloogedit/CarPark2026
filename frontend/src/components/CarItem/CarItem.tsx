@@ -19,6 +19,13 @@ export function CarItem({ car }: Props) {
             <div className="imageContainer">
                 <img src={`${IMG_BASE_URL}/${car.image}`} className="carImage" alt={`${car.manufacturer} ${car.model}`} loading="lazy" />
                 <div className="priceBadge">{car.price} EUR</div>
+                <button 
+                    className={`favoriteIconBtn ${isFavorite(car) ? 'active' : ''}`} 
+                    onClick={() => toggleFavorite(car)}
+                    aria-label={isFavorite(car) ? "Remove from favorites" : "Add to favorites"}
+                >
+                    {isFavorite(car) ? "★" : "☆"}
+                </button>
             </div>
             <div className="details">
                 <div className="titleRow">
@@ -41,17 +48,12 @@ export function CarItem({ car }: Props) {
                     </div>
                 </div>
                 <div className="row">
-                    <ul className="list">
+                    <ul className="list equipmentList">
                         {equipments.slice(0, 9).map((equipment, index) => {
                             return <li key={index}>{equipment}</li>
                         })}
                     </ul>
                 </div>
-            </div>
-            <div className="row">
-                <button className="button" onClick={() => toggleFavorite(car)}>
-                    {isFavorite(car) ? "Remove from favorites" : "Add to favorites"}
-                </button>
             </div>
         </div>
     )
