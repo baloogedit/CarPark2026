@@ -1,11 +1,15 @@
-import { createContext } from "react";
+import { createContext, type Dispatch, type SetStateAction } from "react";
 
 export type Filters = {
     manufacturer: string
 }
 
-type FiltersContextType = {
+export type FiltersContextType = {
     filters: Filters;
+    page: number | undefined;
+    setPage: Dispatch<SetStateAction<number | undefined>>;
+    limit: number | undefined;
+    setLimit: Dispatch<SetStateAction<number | undefined>>;
     setFilters: React.Dispatch<React.SetStateAction<Filters>>;
     updateFilter: (field: keyof Filters, value: string) => void;
     resetFilters: () => void;
