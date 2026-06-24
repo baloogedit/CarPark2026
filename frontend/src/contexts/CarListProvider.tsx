@@ -38,7 +38,7 @@ export function CarListProvider({ children }: PropsWithChildren) {
 
     useEffect(() => {
         getCarList()
-    }, [])
+    }, [getCarList])
 
     const context = {
         carsList,
