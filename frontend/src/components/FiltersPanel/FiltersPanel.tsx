@@ -6,7 +6,10 @@ export function FiltersPanel() {
 
     return (
         <div className="filtersPanel">
-            <h3>Filters Cars</h3>
+            <div className="filtersPanel__header">
+                <h3>Filters</h3>
+                <p>Focus the list without losing the wider catalog.</p>
+            </div>
             <input
                 type="text"
                 placeholder="Manufacturer"

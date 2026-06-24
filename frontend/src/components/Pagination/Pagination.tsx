@@ -2,8 +2,6 @@ import './Pagination.css'
 
 export function Pagination() {
 
-    const pages = [1, 2, 3, 4, 5]
-
     return (
         <div className="Pagination">
             {/* <button

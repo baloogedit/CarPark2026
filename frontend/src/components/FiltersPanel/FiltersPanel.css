@@ -1,41 +1,69 @@
 .filtersPanel {
-    background-color: #ffffff;
-    padding: 1rem;
-    margin: 0 auto;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 1000px;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    align-items: center;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--surface);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 16px 50px rgba(2, 6, 23, 0.22);
+}
+
+.filtersPanel__header {
+    flex: 1 1 260px;
+}
+
+.filtersPanel__header h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    letter-spacing: -0.02em;
+}
+
+.filtersPanel__header p {
+    margin: 0.35rem 0 0;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
 }
 
 .filtersPanel input[type="text"],
 .filtersPanel input[type="number"] {
-    flex: 1 1 200px;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
+    flex: 1 1 220px;
+    min-height: 48px;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.filtersPanel input[type="text"]::placeholder,
+.filtersPanel input[type="number"]::placeholder {
+    color: rgba(231, 237, 246, 0.55);
+}
+
+.filtersPanel input[type="text"]:focus,
+.filtersPanel input[type="number"]:focus {
+    outline: none;
+    border-color: rgba(249, 115, 22, 0.65);
+    box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.16);
+    background: rgba(255, 255, 255, 0.07);
 }
 
 .filtersPanel label.checkbox {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    font-weight: 500;
+    gap: 0.55rem;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    font-weight: 600;
+    color: var(--text-primary);
 }
 
-.filtersPanel button {
-    padding: 0.5rem 1rem;
-    border: none;
-    background-color: #dc3545;
-    color: white;
-    border-radius: 6px;
-    flex: 1 1 50px;
-}
-
-.filtersPanel button:hover {
-    background-color: #b02a37;
+.filtersPanel label.checkbox input {
+    accent-color: var(--accent);
 }
