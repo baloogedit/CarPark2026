@@ -11,7 +11,7 @@ const defaultFilters: Filters = {
 export function FiltersProvider({ children }: PropsWithChildren) {
     const [filters, setFilters] = useState<Filters>(defaultFilters)
     const [page, setPage] = useState<number>(1)
-    const [limit, setLimit] = useState<number>(600)
+    const [limit, setLimit] = useState<number>(28)
     
     const [showFavoritesOnly, setShowFavoritesOnly] = useState<boolean>(false)
 
