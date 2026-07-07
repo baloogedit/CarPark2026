@@ -81,15 +81,15 @@ Please be creative and develop a unique layout.
 
 2. Add filtering and pagination from API ✅
 
-3. Add filter functionality for the list of cars. Examples: construction year, price etc. (Only frontend)
+3. Add filter functionality for the list of cars. Examples: construction year, price etc. (Only frontend) ✅
 
-4. Extend the search bar to search cars by manufacturer / model / etc. (Only frontend)
+4. Extend the search bar to search cars by manufacturer / model / etc. (Only frontend) ✅
 
-5. Add the possibility of sorting / ordering / pagination of the list of cars.
+5. Add the possibility of sorting / ordering / pagination of the list of cars.✅
 
 6. Implement add to basket functionality and create a basket page that must contain the list of vehicles with details and images and the totals.
 
-7. Define the navigation menu for the application.
+7. Define the navigation menu for the application. ✅
 
 8. Use the API for the filter / search functionality (followup from 2 & 3)
 
@@ -111,4 +111,4 @@ Please be creative and develop a unique layout.
 
 17. Add banners, promotions in the application.
 
-18. Use a library of UI components.
+18. Use a library of UI components. ✅

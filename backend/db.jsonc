@@ -4688,6 +4688,36 @@
       "price": 74240,
       "description": "Available for VAT-paying entities. Delivery within 10 days. Import fees not included. Pictures for reference only. All colors available. 12-month warranty standard, extendable up to 5 years. Financing and leasing options on request. Buy-back and insurance services available.",
       "equipment": "Apple Carplay, Android Auto, Bluetooth, Radio, Hands-free system, USB port, Wireless charging, Navigation system, Audio system, Touch screen monitor, Voice control, Internet connection, Climatronic 2 zones, Leather upholstery, Rear air conditioning, Driver seat heating, Passenger seat heating, Front sports seats, Armrest (front), Armrest (rear), Leather steering wheel, Steering wheel with controls, Multifunctional steering wheel, Rain sensor, Heated windshield, Electric windows, Privacy glass, LED headlights, Parking sensors, Speed limiter, Brake assist, Traction control, LED taillights, Start/Stop system, Wheel pressure sensors, Power steering, ABS, ESP, Driver airbag, Passenger airbag, Isofix"
+    },
+    {
+      "vin": "ZMc0621359941sJDgg",
+      "image": "ford-raptor.png",
+      "manufacturer": "Ford",
+      "model": "Raptor",
+      "constructionYear": 2021,
+      "mileage": 38634,
+      "engineSize": 1995,
+      "power": 213,
+      "gearbox": "Manual",
+      "fuelType": "Diesel",
+      "price": 4302,
+      "description": "Available for VAT-paying entities. Delivery within 10 days. Import fees not included. Pictures for reference only. All colors available. 12-month warranty standard, extendable up to 5 years. Financing and leasing options on request. Buy-back and insurance services available.",
+      "equipment": "Apple Carplay, Android Auto, Bluetooth, Radio, Hands-free system, USB port, Wireless charging, Navigation system, Audio system, Touch screen monitor, Voice control, Internet connection, Climatronic 2 zones, Leather upholstery, Rear air conditioning, Driver seat heating, Passenger seat heating, Front sports seats, Armrest (front), Armrest (rear), Leather steering wheel, Steering wheel with controls, Multifunctional steering wheel, Rain sensor, Heated windshield, Electric windows, Privacy glass, LED headlights, Parking sensors, Speed limiter, Brake assist, Traction control, LED taillights, Start/Stop system, Wheel pressure sensors, Power steering, ABS, ESP, Driver airbag, Passenger airbag, Isofix"
+    },
+    {
+      "vin": "EcO2771270636XAwxk",
+      "image": "audi-q7.png",
+      "manufacturer": "Audi",
+      "model": "Q7",
+      "constructionYear": 2020,
+      "mileage": 61366,
+      "engineSize": 2996,
+      "power": 340,
+      "gearbox": "Automatic",
+      "fuelType": "Petrol",
+      "price": 6485,
+      "description": "Available for VAT-paying entities. Delivery within 10 days. Import fees not included. Pictures for reference only. All colors available. 12-month warranty standard, extendable up to 5 years. Financing and leasing options on request. Buy-back and insurance services available.",
+      "equipment": "Apple Carplay, Android Auto, Bluetooth, Radio, Hands-free system, USB port, Wireless charging, Navigation system, Audio system, Touch screen monitor, Voice control, Internet connection, Climatronic 2 zones, Leather upholstery, Rear air conditioning, Driver seat heating, Passenger seat heating, Front sports seats, Armrest (front), Armrest (rear), Leather steering wheel, Steering wheel with controls, Multifunctional steering wheel, Rain sensor, Heated windshield, Electric windows, Privacy glass, LED headlights, Parking sensors, Speed limiter, Brake assist, Traction control, LED taillights, Start/Stop system, Wheel pressure sensors, Power steering, ABS, ESP, Driver airbag, Passenger airbag, Isofix"
     }
   ]
 }
