@@ -87,7 +87,7 @@ Please be creative and develop a unique layout.
 
 5. Add the possibility of sorting / ordering / pagination of the list of cars.✅
 
-6. Implement add to basket functionality and create a basket page that must contain the list of vehicles with details and images and the totals.
+6. Implement add to basket functionality and create a basket page that must contain the list of vehicles with details and images and the totals. ✅
 
 7. Define the navigation menu for the application. ✅
 

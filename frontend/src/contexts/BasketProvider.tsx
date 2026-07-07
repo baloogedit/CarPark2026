@@ -1,4 +1,4 @@
-import { createContext, useState,  useContext, type ReactNode } from 'react';
+import { createContext, useState, useEffect,  useContext, type ReactNode } from 'react';
 import type { Car } from '../models/car';
 
 interface BasketItem {
@@ -15,14 +15,34 @@ interface BasketContextType {
 
 const BasketContext = createContext<BasketContextType | undefined>(undefined);
 
+const BASKET_STORAGE_KEY = 'carpark_basket';
+
 export function BasketProvider({ children }: { children: ReactNode }) {
-    const [basketItems, setBasketItems] = useState<BasketItem[]>([]);
+    
+    // first load from local storage if available (initial state)
+    const [basketItems, setBasketItems] = useState<BasketItem[]>(() => {
+        const savedBasket = localStorage.getItem(BASKET_STORAGE_KEY);
+        if (savedBasket) {
+            try {
+                return JSON.parse(savedBasket);
+            } catch (error) {
+                console.error("Failed to parse basket from local storage:", error);
+                return [];
+            }
+        }
+        return [];
+    });
+
+    // basket item change -> save to local stoage (sync)
+    useEffect(() => {
+        localStorage.setItem(BASKET_STORAGE_KEY, JSON.stringify(basketItems));
+    }, [basketItems]);
 
     const addToBasket = (car: Car) => {
         setBasketItems((prev) => {
             const existingItem = prev.find(item => item.car.vin === car.vin);
             if (existingItem) {
-                // prevent adding duplicates.
+                // prevent duplicates
                 return prev; 
             }
             return [...prev, { car, quantity: 1 }];
