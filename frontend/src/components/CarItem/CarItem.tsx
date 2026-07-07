@@ -2,6 +2,7 @@ import type { Car } from "../../models/car"
 import "./CarItem.css"
 import { useFavorites } from "../../hooks/useFavorites"
 import { IMG_BASE_URL } from "../../data/constants"
+import {useBasket} from "../../contexts/BasketProvider"
 
 type Props = {
     car: Car
@@ -14,11 +15,18 @@ export function CarItem({ car }: Props) {
         .filter(Boolean)
     const { toggleFavorite, isFavorite } = useFavorites()
 
+    const { addToBasket } = useBasket();
+
     return (
         <div className="carItem">
             <div className="imageContainer">
                 <img src={`${IMG_BASE_URL}/${car.image}`} className="carImage" alt={`${car.manufacturer} ${car.model}`} loading="lazy" />
                 <div className="priceBadge">{car.price} EUR</div>
+            </div>
+            <div className="CarItem__actions">
+                <button onClick={() => addToBasket(car)} className="basketButton">
+                    Add to Basket
+                </button>
                 <button 
                     className={`favoriteIconBtn ${isFavorite(car) ? 'active' : ''}`} 
                     onClick={() => toggleFavorite(car)}

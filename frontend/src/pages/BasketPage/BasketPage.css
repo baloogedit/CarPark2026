@@ -1,0 +1,145 @@
+.BasketPage {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: #fff;
+}
+
+.headerText {
+    color: #f97316;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.BasketPage__header {
+    
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #e59f70;
+    padding-bottom: 1rem;
+}
+
+.BasketPage__header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.BasketPage__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+    .BasketPage__content {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.BasketPage__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.BasketPage__item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid #e59f70;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.BasketPage__item:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.BasketPage__item img {
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.BasketPage__details {
+    flex: 1;
+}
+
+.BasketPage__details h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+}
+
+.BasketPage__details p {
+    margin: 0;
+    color: #000000c5;
+    font-size: 0.9rem;
+}
+
+.BasketPage__price {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Summary Panel */
+.BasketPage__summary {
+    background: rgba(255, 255, 255, 0.25);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #e59f70;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    /* Makes the summary stick to the screen as you scroll down a long basket */
+    position: sticky;
+    top: 100px; 
+}
+
+.BasketPage__summary h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.BasketPage__total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eaeaea;
+}
+
+/* Button specific modifiers (Assuming .btn is global, but adding here just in case) */
+.btn--danger {
+    height: 40px;
+    width: 75px;
+    color: #ffffff;
+    background-color: #f97316;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+
+.btn--danger:hover {
+    background-color: #ef4444;
+    color: #ffffff;
+}
+
+.btn--checkout {
+    width: 100%;
+    padding: 1rem;
+    background-color: #000;
+    color: #fff;
+    font-size: 1.1rem;
+    border-radius: 8px;
+}
+
+.btn--checkout:hover {
+    background-color: #333;
+}

@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { AdminPage } from './pages/AdminPage/AdminPage'
 import { BasketPage } from './pages/BasketPage/BasketPage'
 import { Navigation } from './components/Navigation/Navigation'
+import { BasketProvider } from './contexts/BasketProvider'
 
 export function App() {
     return (
@@ -18,16 +19,16 @@ export function App() {
                 <FavoritesProvider>
                     <FiltersProvider>
                         <CarListProvider>
-                                {/* Add the Navigation Menu at the top */}
+                            <BasketProvider>
                                 <Navigation />
                                 
-                                {/* Define the Routes for the pages */}
                                 <Routes>
                                     <Route path="/" element={<Content />} />
                                     <Route path="/basket" element={<BasketPage />} />
                                     <Route path="/admin" element={<AdminPage />} />
                                 </Routes>
-                            </CarListProvider>
+                            </BasketProvider>
+                        </CarListProvider>
                     </FiltersProvider>
                 </FavoritesProvider>
             </div>
