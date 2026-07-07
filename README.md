@@ -77,9 +77,9 @@ Favorites functionality
 Continue the CarPark application. 
 Please be creative and develop a unique layout.
 
-1. Make the app more presentable, add css styles or add a theme
+1. Make the app more presentable, add css styles or add a theme ✅
 
-2. Add filtering and pagination from API
+2. Add filtering and pagination from API ✅
 
 3. Add filter functionality for the list of cars. Examples: construction year, price etc. (Only frontend)
 
