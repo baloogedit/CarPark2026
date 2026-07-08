@@ -1,26 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import type { Car } from '../../models/car';
-import './EditCarModal.css';
+import './AddCarModal.css';
 
-interface EditCarModalProps {
-    car: Car | null;
+interface AddCarModalProps {
     isOpen: boolean;
     onClose: () => void;
-    onSave: (vin: string, updatedData: Partial<Car>) => Promise<void>;
+    onAdd: (newCar: Car) => Promise<void>;
 }
 
-export function EditCarModal({ car, isOpen, onClose, onSave }: EditCarModalProps) {
+export function AddCarModal({ isOpen, onClose, onAdd }: AddCarModalProps) {
     
-    const [formData, setFormData] = useState<Partial<Car>>({});
+    const [formData, setFormData] = useState<Partial<Car>>({
+        image: 'image.png', //image placeholder
+    });
     const [isSaving, setIsSaving] = useState(false);
 
-    useEffect(() => {
-        if (car) {
-            setFormData(car);
-        }
-    }, [car]);
-
-    if (!isOpen || !car) return null;
+    if (!isOpen) return null;
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value, type } = e.target;
@@ -37,23 +32,28 @@ export function EditCarModal({ car, isOpen, onClose, onSave }: EditCarModalProps
         e.preventDefault();
         setIsSaving(true);
         
-        await onSave(car.vin, formData);
+        await onAdd(formData as Car);
         setIsSaving(false);
         onClose();
     };
 
     return (
         <div className="Modal__overlay" onClick={onClose}>
-            <div className="EditCarModal" onClick={(e) => e.stopPropagation()}>
-                <div className="EditCarModal__header">
-                    <h2>Edit Car: {car.manufacturer} {car.model}</h2>
+            <div className="AddCarModal" onClick={(e) => e.stopPropagation()}>
+                <div className="AddCarModal__header">
+                    <h2>Add New Car</h2>
                     <button className="Modal__close" onClick={onClose}>&times;</button>
                 </div>
                 
-                <form onSubmit={handleSubmit} className="EditCarModal__form">
+                <form onSubmit={handleSubmit} className="AddCarModal__form">
                     
-                    <div className="EditCarModal__grid">
+                    <div className="AddCarModal__grid">
                         
+                        <div className="form-group">
+                            <label>VIN (Unique ID)</label>
+                            <input type="text" name="vin" value={formData.vin || ''} onChange={handleChange} required placeholder="pl. WBA00000001" />
+                        </div>
+
                         <div className="form-group">
                             <label>Manufacturer</label>
                             <input type="text" name="manufacturer" value={formData.manufacturer || ''} onChange={handleChange} required />
@@ -62,11 +62,6 @@ export function EditCarModal({ car, isOpen, onClose, onSave }: EditCarModalProps
                         <div className="form-group">
                             <label>Model</label>
                             <input type="text" name="model" value={formData.model || ''} onChange={handleChange} required />
-                        </div>
-
-                        <div className="form-group">
-                            <label>VIN</label>
-                            <input type="text" name="vin" value={formData.vin || ''} onChange={handleChange} required />
                         </div>
 
                         <div className="form-group">
@@ -113,7 +108,7 @@ export function EditCarModal({ car, isOpen, onClose, onSave }: EditCarModalProps
                         </div>
                     </div>
 
-                    <div className="form-group EditCarModal__fullwidth">
+                    <div className="form-group AddCarModal__fullwidth">
                         <label>Description</label>
                         <textarea 
                             name="description"
@@ -123,7 +118,7 @@ export function EditCarModal({ car, isOpen, onClose, onSave }: EditCarModalProps
                         />
                     </div>
 
-                    <div className="form-group EditCarModal__fullwidth">
+                    <div className="form-group AddCarModal__fullwidth">
                         <label>Equipments (comma separated)</label>
                         <textarea 
                             name="equipment" 
@@ -133,15 +128,15 @@ export function EditCarModal({ car, isOpen, onClose, onSave }: EditCarModalProps
                         />
                     </div>
 
-                    <div className="form-group EditCarModal__fullwidth">
+                    <div className="form-group AddCarModal__fullwidth">
                         <label>Image Filename (e.g. audi-q7.png)</label>
                         <input type="text" name="image" value={formData.image || ''} onChange={handleChange} />
                     </div>
                     
-                    <div className="EditCarModal__actions">
+                    <div className="AddCarModal__actions">
                         <button type="button" onClick={onClose} className="btn-cancel">Cancel</button>
                         <button type="submit" className="btn-save" disabled={isSaving}>
-                            {isSaving ? 'Saving...' : 'Save Changes'}
+                            {isSaving ? 'Adding...' : 'Add Car'}
                         </button>
                     </div>
                 </form>

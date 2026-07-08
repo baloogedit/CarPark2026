@@ -2,12 +2,14 @@ import { useState } from 'react';
 import { useCarsList } from '../../hooks/useCarsList';
 import { IMG_BASE_URL } from '../../data/constants';
 import { EditCarModal } from '../../components/EditCarModal/EditCarModal';
+import { AddCarModal } from '../../components/AddCarModal/AddCarModal';
 import type { Car } from '../../models/car';
 import './AdminPage.css';
 
 export function AdminPage() {
-    const { carsList, isLoading, isError, deleteCarContext, updateCarContext } = useCarsList();
+    const { carsList, isLoading, isError, deleteCarContext, updateCarContext, addCarContext } = useCarsList();
     const [editingCar, setEditingCar] = useState<Car | null>(null);
+    const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
     const handleDelete = async (vin: string) => {
         if (window.confirm(`Biztosan törölni szeretnéd ezt az autót? (VIN: ${vin})`)) {
@@ -20,7 +22,7 @@ export function AdminPage() {
     };
 
     const handleAdd = () => {
-        console.log('Új autó hozzáadása hamarosan...');
+        setIsAddModalOpen(true);
         
     };
 
@@ -98,6 +100,12 @@ export function AdminPage() {
                 isOpen={editingCar !== null} 
                 onClose={() => setEditingCar(null)}
                 onSave={updateCarContext}
+            />
+
+            <AddCarModal 
+                isOpen={isAddModalOpen}
+                onClose={() => setIsAddModalOpen(false)}
+                onAdd={addCarContext}
             />
         </div>
     );

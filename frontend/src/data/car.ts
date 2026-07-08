@@ -141,3 +141,13 @@ export async function updateCarApi(vin: string, updatedData: Partial<Car>) {
     if (!response.ok) throw new Error('Hiba a módosítás során');
     return response.json();
 }
+
+export async function addCarApi(newCar: Car) {
+    const response = await fetch('/api/cars', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newCar),
+    });
+    if (!response.ok) throw new Error('Hiba a hozzáadás során');
+    return response.json();
+}

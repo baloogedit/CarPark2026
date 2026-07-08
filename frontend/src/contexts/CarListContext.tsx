@@ -9,6 +9,8 @@ export interface CarListContextType {
     
     deleteCarContext: (vin: string) => Promise<void>;
     updateCarContext: (vin: string, updatedData: Partial<Car>) => Promise<void>;
+    addCarContext: (newCar: Car) => Promise<void>;
+
 }
 
 export const CarListContext = createContext<CarListContextType | undefined>(undefined);

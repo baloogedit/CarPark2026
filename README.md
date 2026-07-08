@@ -103,11 +103,13 @@ Please be creative and develop a unique layout.
 
 13. Use the API for the favorites functionality (add, remove, etc.)
 
-14. Implement quick view with more details for cars (modal / dialog). (Move car information from row to modal).✅
+14. Implement quick view with more details for cars (modal / dialog). (Move car information from row to modal). ✅
 
-15. Create an admin page to manage cars
+15. Create an admin page to manage cars ✅
 
-16. Integrate the image upload functionality in the process of saving a new car.
+16. Integrate the image upload functionality in the process of saving a new car. ✅
+        ->(only if image is in the backend/images folder => add by image name )
+        ->(if not, a default image will be used)
 
 17. Add banners, promotions in the application.
 
