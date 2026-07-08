@@ -93,7 +93,7 @@ Please be creative and develop a unique layout.
 
 8. Use the API for the filter / search functionality (followup from 2 & 3)
 
-9. Define a global theme for the application. (different color schemes, dark mode, etc)
+9. Define a global theme for the application. (different color schemes, dark mode, etc) ✅
 
 10. Save the basket items and the list of orders to local storage. ✅
 

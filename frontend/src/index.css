@@ -14,14 +14,15 @@
   color-scheme: dark;
 
   /*dark mode colors*/
+  --box-gradient: linear-gradient(135deg, rgba(98, 57, 17, 0.507), rgba(19, 42, 91, 0.521));
   --surface: rgba(12, 18, 33, 0.78);
   --surface-strong: rgba(15, 23, 42, 0.94);
   --surface-soft: rgba(255, 255, 255, 0.06);
   --border: rgba(255, 255, 255, 0.12);
   --text-primary: #f8fafc;
   --text-secondary: #b7c1d1;
-  --accent: #f97316;
-  --accent-strong: #fb923c;
+  --accent: #f97416d4;
+  --accent-strong: #de7825;
   --accent-soft: rgba(249, 115, 22, 0.42);
   
   /*navigation colors*/
@@ -39,19 +40,20 @@
   color-scheme: light;
   
   /* colors for light mode */
+  --box-gradient: linear-gradient(135deg, rgba(242, 170, 98, 0.623), rgba(75, 127, 240, 0.476));
   --surface: rgba(255, 255, 255, 0.78);
   --surface-strong: rgba(255, 255, 255, 0.94);
   --surface-soft: rgba(0, 0, 0, 0.04);
   --border: rgba(0, 0, 0, 0.12);
   --text-primary: #0f172a;
   --text-secondary: #475569;
-  --accent: #ea580c;
-  --accent-strong: #c2410c;
+  --accent: #e16e30;
+  --accent-strong: #c9592d;
   --accent-soft: rgba(234, 88, 12, 0.3);
   
   /* navigation in light mode */
   --nav-bg: rgba(255, 255, 255, 0.6);
-  --nav-link: #334155;
+  --nav-link: rgb(57, 93, 171);
   --nav-link-hover: #000;
 }
 

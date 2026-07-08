@@ -2,20 +2,19 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
-    color: #fff;
+    color: var(--text-primary);  
 }
 
 .headerText {
-    color: #f97316;
+    color: var(--accent);  
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 1rem;
 }
 
 .BasketPage__header {
-    
     margin-bottom: 2rem;
-    border-bottom: 2px solid #e59f70;
+    border-bottom: 2px solid var(--accent-soft);  
     padding-bottom: 1rem;
 }
 
@@ -51,16 +50,17 @@
     align-items: center;
     gap: 1.5rem;
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.25);
-    border: 1px solid #e59f70;
+    background: var(--surface);  
+    border: 1px solid var(--border);  
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .BasketPage__item:hover {
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
+    border-color: var(--accent-soft);
 }
 
 .BasketPage__item img {
@@ -79,7 +79,7 @@
 
 .BasketPage__details p {
     margin: 0;
-    color: #000000c5;
+    color: var(--text-secondary);  
     font-size: 0.9rem;
 }
 
@@ -88,14 +88,13 @@
     font-weight: 600;
 }
 
-/* Summary Panel */
+
 .BasketPage__summary {
-    background: rgba(255, 255, 255, 0.25);
+    background: var(--surface);  
     padding: 2rem;
     border-radius: 12px;
-    border: 1px solid #e59f70;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-    /* Makes the summary stick to the screen as you scroll down a long basket */
+    border: 1px solid var(--border);  
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     position: sticky;
     top: 100px; 
 }
@@ -113,34 +112,35 @@
     font-weight: bold;
     margin-bottom: 1.5rem;
     padding-top: 1rem;
-    border-top: 1px solid #e59f70;
+    border-top: 1px solid var(--border);  
 }
 
-/* Button specific modifiers (Assuming .btn is global, but adding here just in case) */
+
 .btn--danger {
     height: 40px;
     width: 75px;
     color: #ffffff;
-    background-color: #f97316;
+    background-color: var(--accent);  
     border: 1px solid transparent;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .btn--danger:hover {
     background-color: #ef4444;
-    color: #ffffff;
 }
 
 .btn--checkout {
     width: 100%;
     padding: 1rem;
-    background-color: #000;
+    background-color: var(--accent);  
     color: #fff;
     font-size: 1.1rem;
     border-radius: 8px;
-    border: 1px solid #e59f70;
+    border: none;
+    cursor: pointer;
 }
 
 .btn--checkout:hover {
-    background-color: #333;
+    background-color: var(--accent-strong);
 }
