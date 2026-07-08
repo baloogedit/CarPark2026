@@ -1,0 +1,136 @@
+.AdminPage {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: var(--text-primary);
+}
+
+.AdminPage__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--accent-soft);
+    padding-bottom: 1rem;
+}
+
+.AdminPage__title {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--accent);
+}
+
+.AdminPage__subtitle {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.AdminPage__addBtn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.AdminPage__addBtn:hover {
+    background: var(--accent-strong);
+    transform: translateY(-2px);
+}
+
+.AdminPage__tableWrapper {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow-x: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.AdminPage__table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.AdminPage__table th,
+.AdminPage__table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.AdminPage__table th {
+    background: var(--surface-strong);
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+}
+
+.AdminPage__table tbody tr {
+    transition: background 0.2s;
+}
+
+.AdminPage__table tbody tr:hover {
+    background: var(--surface-soft);
+}
+
+.AdminPage__img {
+    width: 70px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+}
+
+.AdminPage__vin {
+    font-family: monospace;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.AdminPage__price {
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.AdminPage__actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.AdminPage__btn {
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+}
+
+.AdminPage__btn--edit {
+    background: var(--surface-strong);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+}
+
+.AdminPage__btn--edit:hover {
+    background: var(--surface-soft);
+    border-color: var(--accent);
+}
+
+.AdminPage__btn--delete {
+    background: var(--accent-soft);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.AdminPage__btn--delete:hover {
+    background: #ef4444;
+    color: #fff;
+}
