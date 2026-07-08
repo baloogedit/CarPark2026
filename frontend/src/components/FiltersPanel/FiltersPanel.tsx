@@ -4,10 +4,6 @@ import "./FiltersPanel.css"
 export function FiltersPanel() {
     const { filters, updateFilter, resetFilters, showFavoritesOnly, handleFavoritesToggle } = useFilters()
 
-    const activeFilterCount =
-        Object.values(filters).filter((value) => value.trim() !== "").length +
-        (showFavoritesOnly ? 1 : 0)
-
     return (
         <div className="filtersPanel">
             <div className="filtersPanel__header">
@@ -82,7 +78,7 @@ export function FiltersPanel() {
                 <button type="button" className="filtersPanel__reset" onClick={resetFilters}>
                     Reset filters
                 </button>
-                
+
             </div>
         </div>
     )
