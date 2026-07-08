@@ -1,9 +1,13 @@
 import { useBasket } from '../../contexts/BasketProvider'; 
 import { IMG_BASE_URL } from '../../data/constants';
 import './BasketPage.css';
+import type { Car } from '../../models/car';
+import { useState } from 'react';
+import { QuickViewModal } from '../../components/QuickViewModal/QuickViewModal';
 
 export function BasketPage() {
     const { basketItems, removeFromBasket, basketTotal } = useBasket();
+    const [viewingCar, setViewingCar] = useState<Car | null>(null);
 
     return (
         <div className="BasketPage">
@@ -11,12 +15,12 @@ export function BasketPage() {
                 <h1 className="headerText">Your Basket</h1>
             </header>
 
-            {basketItems.length === 0 ? (
+            {(!basketItems || basketItems.length === 0) ? (
                 <p>Your basket is empty. Go explore some cars!</p>
             ) : (
                 <div className="BasketPage__content">
                     <ul className="BasketPage__list">
-                        {basketItems.map((item) => (
+                        {basketItems?.map((item) => (
                             <li key={item.car.vin} className="BasketPage__item">
                                 <div className="BasketPage__image">
                                     <img src={`${IMG_BASE_URL}/${item.car.image}`} className="carImage" alt={`${item.car.manufacturer} ${item.car.model}`} loading="lazy" />
@@ -32,6 +36,12 @@ export function BasketPage() {
                                 <div className="BasketPage__price">
                                     ${item.car.price.toLocaleString()}
                                 </div>
+                                <button 
+                                    onClick={() => setViewingCar(item.car)}
+                                    className="btn btn--secondary"
+                                >
+                                    Quick View
+                                </button>
                                 <button 
                                     onClick={() => removeFromBasket(item.car.vin)}
                                     className="btn btn--danger"
@@ -52,6 +62,12 @@ export function BasketPage() {
                     </div>
                 </div>
             )}
+            
+            <QuickViewModal 
+                car={viewingCar} 
+                isOpen={viewingCar !== null} 
+                onClose={() => setViewingCar(null)} 
+            />
         </div>
     );
 }

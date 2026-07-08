@@ -114,6 +114,7 @@
     cursor: pointer;
     transition: transform 0.15s ease, filter 0.15s ease;
 }
+
 .basketButton{
     width: 100%;
     min-height: 46px;
