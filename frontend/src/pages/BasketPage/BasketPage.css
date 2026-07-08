@@ -64,6 +64,7 @@
 }
 
 .BasketPage__item img {
+    width: 200px;
     border-radius: 8px;
     object-fit: cover;
 }
