@@ -8,6 +8,7 @@ import { AdminPage } from './pages/AdminPage/AdminPage'
 import { BasketPage } from './pages/BasketPage/BasketPage'
 import { Navigation } from './components/Navigation/Navigation'
 import { BasketProvider } from './contexts/BasketProvider'
+import { ThemeProvider } from './contexts/ThemeProvider'
 
 export function App() {
     return (
@@ -20,13 +21,14 @@ export function App() {
                     <FiltersProvider>
                         <CarListProvider>
                             <BasketProvider>
-                                <Navigation />
-                                
-                                <Routes>
-                                    <Route path="/" element={<Content />} />
-                                    <Route path="/basket" element={<BasketPage />} />
-                                    <Route path="/admin" element={<AdminPage />} />
-                                </Routes>
+                                <ThemeProvider>
+                                    <Navigation />
+                                    <Routes>
+                                        <Route path="/" element={<Content />} />
+                                        <Route path="/basket" element={<BasketPage />} />
+                                        <Route path="/admin" element={<AdminPage />} />
+                                    </Routes>
+                                </ThemeProvider>
                             </BasketProvider>
                         </CarListProvider>
                     </FiltersProvider>

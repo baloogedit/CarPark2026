@@ -12,6 +12,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color-scheme: dark;
+
+  /*dark mode colors*/
   --surface: rgba(12, 18, 33, 0.78);
   --surface-strong: rgba(15, 23, 42, 0.94);
   --surface-soft: rgba(255, 255, 255, 0.06);
@@ -20,8 +22,39 @@
   --text-secondary: #b7c1d1;
   --accent: #f97316;
   --accent-strong: #fb923c;
-  --accent-soft: rgba(249, 115, 22, 0.16);
+  --accent-soft: rgba(249, 115, 22, 0.42);
+  
+  /*navigation colors*/
+  --nav-bg: rgba(93, 123, 176, 0.32);
+  --nav-link: rgb(123, 157, 214);
+  --nav-link-hover: #fff;
 }
+
+[data-theme="light"] {
+  color: #1e293b;
+  background:
+    radial-gradient(circle at top left, rgba(230, 183, 136, 0.623), transparent 30%),
+    radial-gradient(circle at top right, rgba(115, 156, 246, 0.476), transparent 28%),
+    linear-gradient(180deg, #f8fafc 0%, #e2e8f0 48%, #cbd5e1 100%);
+  color-scheme: light;
+  
+  /* colors for light mode */
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: rgba(255, 255, 255, 0.94);
+  --surface-soft: rgba(0, 0, 0, 0.04);
+  --border: rgba(0, 0, 0, 0.12);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent: #ea580c;
+  --accent-strong: #c2410c;
+  --accent-soft: rgba(234, 88, 12, 0.3);
+  
+  /* navigation in light mode */
+  --nav-bg: rgba(255, 255, 255, 0.6);
+  --nav-link: #334155;
+  --nav-link-hover: #000;
+}
+
 
 * {
   box-sizing: border-box;

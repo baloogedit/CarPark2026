@@ -1,7 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import './Navigation.css';
+import { useTheme } from '../../contexts/ThemeProvider';
 
 export function Navigation() {
+
+    const { theme, toggleTheme } = useTheme();
+
     return (
         <nav className="Navigation">
             <div className="Navigation__brand">
@@ -22,6 +26,11 @@ export function Navigation() {
                     <NavLink to="/admin" className={({ isActive }) => isActive ? "Navigation__link--active" : ""}>
                         Admin
                     </NavLink>
+                </li>
+                <li>
+                    <button onClick={toggleTheme} className="theme-toggle-btn">
+                        {theme === 'dark' ? '☀️ Light' : '🌙 Dark'}
+                    </button>
                 </li>
             </ul>
         </nav>
