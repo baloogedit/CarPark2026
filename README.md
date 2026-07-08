@@ -103,7 +103,7 @@ Please be creative and develop a unique layout.
 
 13. Use the API for the favorites functionality (add, remove, etc.)
 
-14. Implement quick view with more details for cars (modal / dialog). (Move car information from row to modal).
+14. Implement quick view with more details for cars (modal / dialog). (Move car information from row to modal).✅
 
 15. Create an admin page to manage cars
 

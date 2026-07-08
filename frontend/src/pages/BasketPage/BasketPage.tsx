@@ -38,9 +38,9 @@ export function BasketPage() {
                                 </div>
                                 <button 
                                     onClick={() => setViewingCar(item.car)}
-                                    className="btn btn--secondary"
+                                    className="btn btn--danger"
                                 >
-                                    Quick View
+                                    View
                                 </button>
                                 <button 
                                     onClick={() => removeFromBasket(item.car.vin)}

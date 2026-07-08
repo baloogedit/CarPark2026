@@ -11,13 +11,17 @@ interface QuickViewModalProps {
 
 export function QuickViewModal({ car, isOpen, onClose }: QuickViewModalProps) {
     const { addToBasket } = useBasket();
-    const equipments = car!.equipment
-            .split(",")
-            .map((equipment) => equipment.trim())
-            .filter(Boolean);
 
-    
+    // 1. LÉPÉS: Biztonsági ellenőrzés (Ezt tedd legelőre!)
+    // Ha a modal zárva van, vagy nincs autó (null), azonnal kilépünk és nem renderelünk semmit.
     if (!isOpen || !car) return null;
+
+    // 2. LÉPÉS: Adatok feldolgozása
+    // Ide jöhet az equipments feldolgozása, mert itt már 100% biztosak vagyunk benne, hogy a 'car' nem null.
+    const equipments = car.equipment
+        .split(",")
+        .map((equipment) => equipment.trim())
+        .filter(Boolean);
 
     return (
         <div className="Modal__overlay" onClick={onClose}>

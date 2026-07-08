@@ -26,7 +26,7 @@ export function CarItem({ car }: Props) {
                 </div>
                 <div className="CarItem__actions">
                     <button onClick={() => setIsModalOpen(true)} className="basketButton">
-                        Quick View
+                        View Details
                     </button>
                     <div style={{ padding: "5px" }}/>
                     <button onClick={() => addToBasket(car)} className="basketButton">

@@ -24,7 +24,9 @@ export function BasketProvider({ children }: { children: ReactNode }) {
         const savedBasket = localStorage.getItem(BASKET_STORAGE_KEY);
         if (savedBasket) {
             try {
-                return JSON.parse(savedBasket);
+                const parsed = JSON.parse(savedBasket);
+                // Csak akkor fogadja el, ha tényleg egy tömb, különben üres tömböt ad
+                return Array.isArray(parsed) ? parsed : []; 
             } catch (error) {
                 console.error("Failed to parse basket from local storage:", error);
                 return [];
@@ -53,7 +55,9 @@ export function BasketProvider({ children }: { children: ReactNode }) {
         setBasketItems((prev) => prev.filter(item => item.car.vin !== vin));
     };
 
-    const basketTotal = basketItems.reduce((total, item) => total + item.car.price, 0);
+    const basketTotal = Array.isArray(basketItems) 
+        ? basketItems.reduce((total, item) => total + item.car.price, 0)
+        : 0;
 
     return (
         <BasketContext.Provider value={{ basketItems, addToBasket, removeFromBasket, basketTotal }}>
