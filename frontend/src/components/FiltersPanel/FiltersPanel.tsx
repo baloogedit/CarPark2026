@@ -82,8 +82,7 @@ export function FiltersPanel() {
                 <button type="button" className="filtersPanel__reset" onClick={resetFilters}>
                     Reset filters
                 </button>
-
-                <span className="filtersPanel__count">{activeFilterCount} active</span>
+                
             </div>
         </div>
     )
