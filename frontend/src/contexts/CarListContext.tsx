@@ -1,11 +1,14 @@
 import { createContext } from "react";
 import type { Car } from "../models/car";
 
-type CarListContextType = {
+export interface CarListContextType {
     carsList: Car[];
     totalCars: number;
     isError: boolean;
     isLoading: boolean;
+    
+    deleteCarContext: (vin: string) => Promise<void>;
+    updateCarContext: (vin: string, updatedData: Partial<Car>) => Promise<void>;
 }
 
-export const CarListContext = createContext<CarListContextType | undefined>(undefined)
+export const CarListContext = createContext<CarListContextType | undefined>(undefined);

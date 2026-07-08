@@ -4,7 +4,7 @@ import type { Car } from "../models/car";
 import { CarListContext } from "./CarListContext";
 import { useFilters } from "../hooks/useFilters";
 import { useFavorites } from "../hooks/useFavorites";
-import { getCars } from "../data/car";
+import { getCars, deleteCarApi, updateCarApi} from "../data/car";
 
 const parseOptionalNumber = (value: string) => {
     if (value.trim() === "") {
@@ -67,6 +67,31 @@ export function CarListProvider({ children }: PropsWithChildren) {
             cancelled = true
         }
     }, [])
+
+
+    const deleteCarContext = async (vin: string) => {
+        try {
+            await deleteCarApi(vin);
+            setAllCars(prev => prev.filter(car => car.vin !== vin));
+        } catch (error) {
+            console.error("Törlési hiba:", error);
+            alert("Nem sikerült törölni az autót!");
+        }
+    };
+
+    const updateCarContext = async (vin: string, updatedData: Partial<Car>) => {
+        try {
+            await updateCarApi(vin, updatedData);
+           
+            setAllCars(prev => prev.map(car => 
+                car.vin === vin ? { ...car, ...updatedData } : car
+            ));
+        } catch (error) {
+            console.error("Szerkesztési hiba:", error);
+            alert("Nem sikerült módosítani az autót!");
+        }
+    };
+
 
     const favoriteVins = useMemo(() => new Set(favorites.map((favorite) => favorite.vin)), [favorites])
 
@@ -137,7 +162,9 @@ export function CarListProvider({ children }: PropsWithChildren) {
         carsList: paginatedCars,
         totalCars,
         isError,
-        isLoading
+        isLoading,
+        deleteCarContext,
+        updateCarContext,
     }
 
     return (

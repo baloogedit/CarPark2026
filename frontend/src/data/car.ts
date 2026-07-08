@@ -123,3 +123,21 @@ export async function deleteCar(vin: string): Promise<void> {
         throw new Error(`Delete failed: ${res.status} ${res.statusText}`)
     }
 }
+
+export async function deleteCarApi(vin: string) {
+    const response = await fetch(`/api/cars/${vin}`, {
+        method: 'DELETE',
+    });
+    if (!response.ok) throw new Error('Hiba a törlés során');
+}
+
+export async function updateCarApi(vin: string, updatedData: Partial<Car>) {
+    
+    const response = await fetch(`/api/cars/${vin}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedData),
+    });
+    if (!response.ok) throw new Error('Hiba a módosítás során');
+    return response.json();
+}
