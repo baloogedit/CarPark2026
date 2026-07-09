@@ -20,7 +20,7 @@ export function AddCarModal({ isOpen, onClose, onAdd }: AddCarModalProps) {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value, type } = e.target;
         
-        const parsedValue = type === 'number' ? Number(value) : value;
+        const parsedValue = type === 'number' && value !== '' ? Number(value) : value;
 
         setFormData(prev => ({
             ...prev,
@@ -66,17 +66,17 @@ export function AddCarModal({ isOpen, onClose, onAdd }: AddCarModalProps) {
 
                         <div className="form-group">
                             <label>Price (EUR)</label>
-                            <input type="number" name="price" value={formData.price || 0} onChange={handleChange} required />
+                            <input type="number" name="price" value={formData.price ?? ''} onChange={handleChange} required />
                         </div>
                         
                         <div className="form-group">
                             <label>Mileage (km)</label>
-                            <input type="number" name="mileage" value={formData.mileage || 0} onChange={handleChange} required />
+                            <input type="number" name="mileage" value={formData.mileage ?? ''} onChange={handleChange} required />
                         </div>
 
                         <div className="form-group">
                             <label>Construction Year</label>
-                            <input type="number" name="constructionYear" value={formData.constructionYear || 0} onChange={handleChange} required />
+                            <input type="number" name="constructionYear" value={formData.constructionYear ?? ''} onChange={handleChange} required />
                         </div>
 
                         <div className="form-group">
@@ -89,12 +89,12 @@ export function AddCarModal({ isOpen, onClose, onAdd }: AddCarModalProps) {
 
                         <div className="form-group">
                             <label>Engine Size (cm³)</label>
-                            <input type="number" name="engineSize" value={formData.engineSize || 0} onChange={handleChange} required />
+                            <input type="number" name="engineSize" value={formData.engineSize ?? ''} onChange={handleChange} required />
                         </div>
 
                         <div className="form-group">
                             <label>Power (CP)</label>
-                            <input type="number" name="power" value={formData.power || 0} onChange={handleChange} required />
+                            <input type="number" name="power" value={formData.power ?? ''} onChange={handleChange} required />
                         </div>
 
                         <div className="form-group">
