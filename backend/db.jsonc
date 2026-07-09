@@ -4004,6 +4004,20 @@
       "price": 34260,
       "description": "Available for VAT-paying entities. Delivery within 10 days. Import fees not included. Pictures for reference only. All colors available. 12-month warranty standard, extendable up to 5 years. Financing and leasing options on request. Buy-back and insurance services available.",
       "equipment": "Apple Carplay, Android Auto, Bluetooth, Radio, Hands-free system, USB port, Wireless charging, Navigation system, Audio system, Touch screen monitor, Voice control, Internet connection, Climatronic 2 zones, Leather upholstery, Rear air conditioning, Driver seat heating, Passenger seat heating, Front sports seats, Armrest (front), Armrest (rear), Leather steering wheel, Steering wheel with controls, Multifunctional steering wheel, Rain sensor, Heated windshield, Electric windows, Privacy glass, LED headlights, Parking sensors, Speed limiter, Brake assist, Traction control, LED taillights, Start/Stop system, Wheel pressure sensors, Power steering, ABS, ESP, Driver airbag, Passenger airbag, Isofix"
+    },
+    {
+      "image": "image.png",
+      "description": "manually added car",
+      "equipment": "scanun incalzite, senzor de ploaie, rezervoir GPL",
+      "fuelType": "Hybrid",
+      "power": 96,
+      "engineSize": 1587,
+      "mileage": 250000,
+      "constructionYear": 2005,
+      "price": 3000,
+      "model": "Golf 5",
+      "manufacturer": "Volkswagen",
+      "vin": "Wvwzzz1kz9p431229"
     }
   ],
   "basket": [
